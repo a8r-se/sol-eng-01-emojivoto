@@ -57,8 +57,6 @@ spec:
           - emojivoto-mapping
   template:
     metadata:
-      annotations:
-        telepresence.getambassador.io/inject-traffic-agent: enabled
       creationTimestamp: null
       labels:
         app: web-svc
