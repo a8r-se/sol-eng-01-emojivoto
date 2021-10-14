@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   annotations:
-    getambassador.io/rolloutId: 23208f84-1483-429e-9108-8e6964efb38e
+    getambassador.io/rolloutId: 022821f5-9ca1-412f-8a7b-4c05e7af99ac
   creationTimestamp: null
   labels:
     app.kubernetes.io/name: web
@@ -22,36 +22,9 @@ spec:
       canaryService: web-svc-canary
       stableService: web-svc
       steps:
-      - setWeight: 10
-      - pause:
-          duration: 12
-      - setWeight: 20
-      - pause:
-          duration: 12
-      - setWeight: 30
-      - pause:
-          duration: 12
-      - setWeight: 40
-      - pause:
-          duration: 12
-      - setWeight: 50
-      - pause:
-          duration: 12
       - setWeight: 60
       - pause:
-          duration: 12
-      - setWeight: 70
-      - pause:
-          duration: 12
-      - setWeight: 80
-      - pause:
-          duration: 12
-      - setWeight: 90
-      - pause:
-          duration: 12
-      - setWeight: 100
-      - pause:
-          duration: 12
+          duration: 120
       trafficRouting:
         ambassador:
           mappings:
