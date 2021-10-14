@@ -6,5 +6,5 @@ metadata:
 spec:
   host: emojivoto.se1.mturner.k736.net 
   precedence: 1
-  prefix: /
+  prefix: /emojivoto/
   service: web-svc.emojivoto:80 
