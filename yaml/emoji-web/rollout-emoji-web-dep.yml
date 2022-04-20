@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   annotations:
-    getambassador.io/rolloutId: 01f35f67-1794-41bf-8201-27f3669aa0e8
+    getambassador.io/rolloutId: e5c11252-879a-4f97-add0-cf552a6613dd
   creationTimestamp: null
   labels:
     app.kubernetes.io/name: web
@@ -11,7 +11,7 @@ metadata:
   name: web
   namespace: emojivoto
 spec:
-  replicas: 2
+  replicas: 3
   revisionHistoryLimit: 1
   selector:
     matchLabels:
@@ -22,12 +22,15 @@ spec:
       canaryService: web-svc-canary
       stableService: web-svc
       steps:
-      - setWeight: 50
+      - setWeight: 30
       - pause:
-          duration: 150
-      - setWeight: 100
+          duration: 100
+      - setWeight: 60
       - pause:
-          duration: 150
+          duration: 100
+      - setWeight: 90
+      - pause:
+          duration: 100
       trafficRouting:
         ambassador:
           mappings:
